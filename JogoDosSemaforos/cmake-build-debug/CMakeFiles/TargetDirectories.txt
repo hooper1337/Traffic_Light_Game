@@ -1,0 +1,3 @@
+/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/CMakeFiles/JogoDosSemaforos.dir

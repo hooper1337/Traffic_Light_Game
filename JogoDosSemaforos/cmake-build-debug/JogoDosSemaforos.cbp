@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="JogoDosSemaforos"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="JogoDosSemaforos">
+				<Option output="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/JogoDosSemaforos.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 JogoDosSemaforos"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="JogoDosSemaforos/fast">
+				<Option output="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/JogoDosSemaforos.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 JogoDosSemaforos/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/bot.c">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/bot.h">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/jogo.c">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/jogo.h">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/main.c">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/menus.c">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/menus.h">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/utils.c">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/utils.h">
+			<Option target="JogoDosSemaforos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/35191/CLionProjects/Prog_HugoFerreira_2020128305/JogoDosSemaforos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
