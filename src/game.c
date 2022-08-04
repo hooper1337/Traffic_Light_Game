@@ -1,7 +1,5 @@
 #include "game.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include <time.h>
+
 void initGame(Game* game){
     srand(time(NULL));
     game->player = 'A';
@@ -16,6 +14,13 @@ void initGame(Game* game){
     game->rows = game->columns = rand() % (5 + 1 - 3) + 3;
     game->board = createBoard(game->rows, game->columns);
     initializeBoard(game->board, game->rows, game->columns);
+}
+
+void changePlayer(Game* game){
+    if(game->player == 'A')
+        game->player = 'B';
+    else
+        game->player = 'A';
 }
 
 char** createBoard(int rows, int columns){
@@ -39,27 +44,116 @@ char** createBoard(int rows, int columns){
     return board;
 }
 
+int placePiece(char** board, int row, int column){
+    if(board[row][column] == '_')
+        board[row][column] = 'G';
+    else if(board[row][column] == 'G')
+        board[row][column] = 'Y';
+    else if(board[row][column] == 'Y')
+        board[row][column] = 'R';
+    else
+        return -1;
+    return 1;
+}
+
 void initializeBoard(char** board, int rows, int columns){
     for(int i=0; i<rows; i++)
         for(int j=0; j<columns; j++)
             board[i][j] = '_';
 }
 
-void printBoard(char** board, int rows, int columns){
-    if(columns == 4)
-        printf("\n\t      BOARD\n");
-    else if(columns == 3)
-        printf("\n\t    BOARD\n");
-    else if(columns == 5)
-        printf("\n\t        BOARD\n");
-    for(int i=0; i<rows; i++){
-        putchar('\n');
-        for(int j=0; j<columns; j++){
-            if(j == 0 ){
-                printf("\t| %c |", board[i][j]);
-            }else{
-                printf(" %c |", board[i][j]);
-            }
-        }
+int addRow(Game* game){
+    char** aux;
+    if((game->player == 'A' && game->expandA == 2) ||
+        (game->player == 'B' && game->expandB == 2)){
+        printf("\nPlayer %c you cant expand the board more.\n", game->player);
+        return -1;
     }
+    aux = realloc(game->board, sizeof(char*)*(game->rows+1));
+    if(aux == NULL){
+        printf("\nError allocating memory for the new row.\n");
+        return -1;
+    }
+    aux[game->rows] = malloc(sizeof(char)*game->columns);
+    if(aux[game->rows] == NULL){
+        printf("\nError allocating memory for the new row.\n");
+        return -1;
+    }
+    for(int i=0; i<game->columns; i++)
+        aux[game->rows][i] = '_';
+    game->rows++;
+    game->board = aux;
+    return 1;
 }
+
+int addColumn(Game* game){
+    char* aux;
+    if((game->player == 'A' && game->expandA == 2) ||
+       (game->player == 'B' && game->expandB == 2)){
+        printf("\nPlayer %c you cant expand the board more.\n", game->player);
+        return -1;
+    }
+    for(int i=0; i<game->rows; i++){
+        aux = realloc(game->board[i], sizeof(char)*(game->columns+1));
+        if(aux == NULL){
+            printf("\nError allocating memory for the new column.\n");
+            return -1;
+        }
+        aux[game->columns] = '_';
+        game->board[i] = aux;
+    }
+    game->columns++;
+    return 1;
+}
+
+int validatePosition(Game* game, char* row, char* column){
+    int r;
+    int c;
+    if(strlen(row) == 1 && strlen(column) == 1)
+        if(isdigit(row[0]) == 1 && isdigit(column[0])){
+            r = atoi(row);
+            c = atoi(column);
+            if((r < game->rows && r >= 0) || (c < game->columns && c  >=0))
+                return 1;
+        }
+    return 0;
+}
+
+int playGame(Game* game, Play** play){
+    char row[20] = "";
+    char column[20] = "";
+    int r;
+    int c;
+    bool exit = false;
+    do{
+        printf("\nIntroduce the row you wish to play.\n>");
+        fgets(row, 20, stdin);
+        row[strlen(row)-1] = '\0';
+        printf("\nIntroduce the column you wish to play.\n>");
+        fgets(column, 20, stdin);
+        column[strlen(column)-1] = '\0';
+        if(validatePosition(game, row, column) == 1){
+            r = atoi(row);
+            c = atoi(column);
+            if(placePiece(game->board, r, c) == 1){
+                game->nPlays++;
+                insertNode(play, r,c, game->player);
+                changePlayer(game);
+            }else{
+                printf("\nYou cant play a piece there.\n");
+                return -1;
+            }
+            exit = true;
+        }
+    } while (!exit);
+    return 1;
+}
+
+int placeRock(char** board, int row, int column){
+    if(board[row][column] == '_'){
+        board[row][column] = 'X';
+        return 1;
+    }
+    return -1;
+}
+

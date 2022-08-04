@@ -67,6 +67,12 @@ build CMakeFiles/src.dir/plays.c.obj: C_COMPILER__src_Debug C$:/Users/Hugo/Deskt
   OBJECT_DIR = CMakeFiles\src.dir
   OBJECT_FILE_DIR = CMakeFiles\src.dir
 
+build CMakeFiles/src.dir/ui.c.obj: C_COMPILER__src_Debug C$:/Users/Hugo/Desktop/Traffic_Light_Game/src/ui.c || cmake_object_order_depends_target_src
+  DEP_FILE = CMakeFiles\src.dir\ui.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\src.dir
+  OBJECT_FILE_DIR = CMakeFiles\src.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target src
@@ -75,7 +81,7 @@ build CMakeFiles/src.dir/plays.c.obj: C_COMPILER__src_Debug C$:/Users/Hugo/Deskt
 #############################################
 # Link the executable src.exe
 
-build src.exe: C_EXECUTABLE_LINKER__src_Debug CMakeFiles/src.dir/main.c.obj CMakeFiles/src.dir/game.c.obj CMakeFiles/src.dir/plays.c.obj
+build src.exe: C_EXECUTABLE_LINKER__src_Debug CMakeFiles/src.dir/main.c.obj CMakeFiles/src.dir/game.c.obj CMakeFiles/src.dir/plays.c.obj CMakeFiles/src.dir/ui.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\src.dir

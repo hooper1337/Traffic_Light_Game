@@ -9,4 +9,5 @@ struct play{
 };
 
 void insertNode(Play** play, int row, int column, char player);
+void showPlays(Play* play);
 #endif //SRC_PLAYS_H

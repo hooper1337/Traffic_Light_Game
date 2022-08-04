@@ -15,3 +15,13 @@ void insertNode(Play** play, int row, int column, char player){
     newPlay->nextPlay = (*play);
     (*play) = newPlay;
 }
+
+void showPlays(Play* play){
+    Play* aux = play;
+    while(aux != NULL){
+        printf("\nPlayer: %c", aux->player);
+        printf("\nRow: %d", aux->row);
+        printf("\nColumn: %d", aux->column);
+        aux = aux->nextPlay;
+    }
+}
