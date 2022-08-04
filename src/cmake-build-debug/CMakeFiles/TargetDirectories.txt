@@ -1,0 +1,3 @@
+C:/Users/Hugo/Desktop/Traffic_Light_Game/src/cmake-build-debug/CMakeFiles/src.dir
+C:/Users/Hugo/Desktop/Traffic_Light_Game/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Hugo/Desktop/Traffic_Light_Game/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
