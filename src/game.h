@@ -27,8 +27,8 @@ char** createBoard(int rows, int columns);
 void initializeBoard(char** board, int rows, int columns);
 int addRow(Game* game);
 int addColumn(Game* game);
-int playGame(Game* game, Play** play);
 int placeRock(char** board, int row, int column);
 void changePlayer(Game* game);
 int placePiece(char** board, int row, int column);
+int validatePosition(Game* game, char* row, char* column);
 #endif //SRC_GAME_H

@@ -83,6 +83,10 @@ int addRow(Game* game){
         aux[game->rows][i] = '_';
     game->rows++;
     game->board = aux;
+    if(game->player == 'A')
+        game->expandA++;
+    else
+        game->expandB++;
     return 1;
 }
 
@@ -103,6 +107,10 @@ int addColumn(Game* game){
         game->board[i] = aux;
     }
     game->columns++;
+    if(game->player == 'A')
+        game->expandA++;
+    else
+        game->expandB++;
     return 1;
 }
 
@@ -119,35 +127,7 @@ int validatePosition(Game* game, char* row, char* column){
     return 0;
 }
 
-int playGame(Game* game, Play** play){
-    char row[20] = "";
-    char column[20] = "";
-    int r;
-    int c;
-    bool exit = false;
-    do{
-        printf("\nIntroduce the row you wish to play.\n>");
-        fgets(row, 20, stdin);
-        row[strlen(row)-1] = '\0';
-        printf("\nIntroduce the column you wish to play.\n>");
-        fgets(column, 20, stdin);
-        column[strlen(column)-1] = '\0';
-        if(validatePosition(game, row, column) == 1){
-            r = atoi(row);
-            c = atoi(column);
-            if(placePiece(game->board, r, c) == 1){
-                game->nPlays++;
-                insertNode(play, r,c, game->player);
-                changePlayer(game);
-            }else{
-                printf("\nYou cant play a piece there.\n");
-                return -1;
-            }
-            exit = true;
-        }
-    } while (!exit);
-    return 1;
-}
+
 
 int placeRock(char** board, int row, int column){
     if(board[row][column] == '_'){
