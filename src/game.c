@@ -8,7 +8,6 @@ void initGame(Game* game){
     game->expandA = 0;
     game->expandB = 0;
     game->type = 0;
-    game->nPlays = 0;
     game->win = 0;
     game->tie = 0;
     game->rows = game->columns = rand() % (5 + 1 - 3) + 3;
@@ -44,16 +43,21 @@ char** createBoard(int rows, int columns){
     return board;
 }
 
-int placePiece(char** board, int row, int column){
-    if(board[row][column] == '_')
-        board[row][column] = 'G';
-    else if(board[row][column] == 'G')
-        board[row][column] = 'Y';
-    else if(board[row][column] == 'Y')
-        board[row][column] = 'R';
+char placePiece(char** board, int row, int column){
+    char piece;
+    if(board[row][column] == '_') {
+        piece = 'G';
+        board[row][column] = piece;
+    }else if(board[row][column] == 'G'){
+        piece = 'Y';
+        board[row][column] = piece;
+    }else if(board[row][column] == 'Y'){
+        piece = 'R';
+        board[row][column] = piece;
+    }
     else
-        return -1;
-    return 1;
+        return '.';
+    return piece;
 }
 
 void initializeBoard(char** board, int rows, int columns){
@@ -129,11 +133,14 @@ int validatePosition(Game* game, char* row, char* column){
 
 
 
-int placeRock(char** board, int row, int column){
+char placeRock(char** board, int row, int column){
+    char piece;
     if(board[row][column] == '_'){
-        board[row][column] = 'X';
-        return 1;
+        piece = 'X';
+        board[row][column] = piece;
+        return piece;
     }
-    return -1;
+    return '.';
 }
+
 

@@ -27,18 +27,21 @@ void startInterface(Game* game, Play** play){
 
         }else if(strcmp(option, "2\0") == 0){
             exit = true;
+            game->type = 1;
             playMenu(game, play);
 
         }else if(strcmp(option, "3\0") == 0){
             exit = true;
+            game->type = 2;
         }else if(strcmp(option, "4\0") == 0){
             //call function to free memory
             exit = true;
-        }
+        }else
+            printf("\nThats not a valid option.\n");
     }while(!exit);
 }
 char* getRowInput(){
-    char* row;
+    char *row = malloc(sizeof(char)* 256);
     printf("\nIntroduce the row you wish to play.\n>");
     fgets(row, 256, stdin);
     row[strlen(row)-1] = '\0';
@@ -46,7 +49,7 @@ char* getRowInput(){
 }
 
 char* getColumnInput(){
-    char* column;
+    char *column = malloc(sizeof(char)* 256);
     printf("\nIntroduce the column you wish to play.\n>");
     fgets(column, 256, stdin);
     column[strlen(column)-1] = '\0';
@@ -58,14 +61,15 @@ void playPiece(Game* game, Play** play){
     char* column;
     int r;
     int c;
+    char piece;
     row = getRowInput();
     column = getColumnInput();
     if(validatePosition(game, row, column) == 1){
         r = atoi(row);
         c = atoi(column);
-        if(placePiece(game->board, r, c) == 1){
-            game->nPlays++;
-            insertNode(play, r, c, game->player);
+        piece = placePiece(game->board, r, c);
+        if(piece != '.'){
+            insertNode(play, r, c, game->player, piece);
             changePlayer(game);
         }else{
             printf("\nYou cant play a piece there.\n");
@@ -82,21 +86,32 @@ void playRock(Game* game, Play** play){
     char* column;
     int r;
     int c;
+    char piece;
     row = getRowInput();
     column = getColumnInput();
-    if(validatePosition(game, row, column) == 1){
-        r = atoi(row);
-        c = atoi(column);
-        if(placeRock(game->board, r, c) == 1){
-            game->nPlays++;
-            //insert play with a rock
-            changePlayer(game);
+    if((game->player == 'A' && game->stonesA < 1) ||
+        game->player == 'B' && game->stonesB < 1){
+        if(validatePosition(game, row, column) == 1){
+            r = atoi(row);
+            c = atoi(column);
+            piece = placeRock(game->board, r, c);
+            if(piece != '.'){
+                if(game->player == 'A')
+                    game->stonesA++;
+                else
+                    game->stonesB++;
+                insertNode(play,r, c, game->player, piece);
+                changePlayer(game);
+            }else{
+                printf("\nYou cant place a rock there.\n");
+                return;
+            }
         }else{
-            printf("\nYou cant place a rock there.\n");
+            printf("\nYou cant play outside of the board.\n");
             return;
         }
     }else{
-        printf("\nYou cant play outside of the board.\n");
+        printf("\nPlayer %c you cant place more rocks.\n", game->player);
         return;
     }
 }
@@ -124,6 +139,7 @@ void playMenu(Game* game, Play** play){
             addRow(game);
         else if(strcmp(option, "6\0") == 0)
             addColumn(game);
+        showPlays(*play);
     }while(!exit);
 }
 

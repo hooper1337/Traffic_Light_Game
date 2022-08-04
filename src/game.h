@@ -15,7 +15,6 @@ typedef struct game{
     int expandA;
     int expandB;
     int type;
-    int nPlays;
     int win;
     int tie;
     int rows;
@@ -27,8 +26,8 @@ char** createBoard(int rows, int columns);
 void initializeBoard(char** board, int rows, int columns);
 int addRow(Game* game);
 int addColumn(Game* game);
-int placeRock(char** board, int row, int column);
+char placeRock(char** board, int row, int column);
 void changePlayer(Game* game);
-int placePiece(char** board, int row, int column);
+char placePiece(char** board, int row, int column);
 int validatePosition(Game* game, char* row, char* column);
 #endif //SRC_GAME_H

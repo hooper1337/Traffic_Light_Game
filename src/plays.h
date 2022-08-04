@@ -5,9 +5,10 @@ struct play{
     int row;
     int column;
     char player;
+    char piece;
     Play* nextPlay;
 };
 
-void insertNode(Play** play, int row, int column, char player);
+void insertNode(Play** play, int row, int column, char player, char piece);
 void showPlays(Play* play);
 #endif //SRC_PLAYS_H
