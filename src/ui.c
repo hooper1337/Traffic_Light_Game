@@ -139,6 +139,8 @@ void playMenu(Game* game, Play** play){
             saveGame(game, *play);
             //call function to free memory
             exit = true;
+        }else if(strcmp(option, "3\0") == 0){
+            showPlays(*play, game->nPlays);
         }else if(strcmp(option, "4\0") == 0){
             playRock(game, play);
         }else if(strcmp(option, "5\0") == 0){
