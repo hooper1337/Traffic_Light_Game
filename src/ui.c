@@ -70,6 +70,7 @@ void playPiece(Game* game, Play** play){
         piece = placePiece(game->board, r, c);
         if(piece != '.'){
             insertNode(play, r, c, game->player, piece);
+            verifyWinner(game);
             changePlayer(game);
         }else{
             printf("\nYou cant play a piece there.\n");
@@ -139,7 +140,11 @@ void playMenu(Game* game, Play** play){
             addRow(game);
         else if(strcmp(option, "6\0") == 0)
             addColumn(game);
-        showPlays(*play);
+        if(game->win == 1){
+            //call function to free memory
+
+            exit = true;
+        }
     }while(!exit);
 }
 

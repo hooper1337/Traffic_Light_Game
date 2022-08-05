@@ -30,4 +30,9 @@ char placeRock(char** board, int row, int column);
 void changePlayer(Game* game);
 char placePiece(char** board, int row, int column);
 int validatePosition(Game* game, char* row, char* column);
+int verifyRow(char** board, int rows, int columns);
+int verifyColumns(char** board, int rows, int columns);
+int verifyDiagonal(char** board, int rows, int columns);
+int verifyWinner(Game* game);
+
 #endif //SRC_GAME_H

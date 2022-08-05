@@ -143,4 +143,92 @@ char placeRock(char** board, int row, int column){
     return '.';
 }
 
+int verifyRow(char** board, int rows, int columns){
+    int countG, countR, countY;
+    countG = countR = countY = 0;
+    for(int i=0; i<rows;) {
+        for (int j = 0; j < columns; j++) {
+            if (board[i][j] == 'G')
+                countG++;
+            else if (board[i][j] == 'Y')
+                countY++;
+            else if(board[i][j] == 'R')
+                countR++;
+            if(countG == columns || countY == columns || countR == columns)
+                return 1;
+        }
+        countG=0, countY = 0, countR = 0;
+        i++;
+    }
+    return 0;
+}
+
+int verifyColumns(char** board, int rows, int columns){
+    int countG, countR, countY;
+    countG = countR = countY = 0;
+    for(int i=0; i<rows;) {
+        for (int j = 0; j < columns; j++) {
+                if (board[j][i] == 'G')
+                    countG++;
+                else if (board[j][i] == 'Y')
+                    countY++;
+                else if(board[j][i] == 'R')
+                    countR++;
+            if(countG == rows || countY == rows || countR == rows)
+                return 1;
+        }
+        countG=0, countY = 0, countR = 0;
+        i++;
+    }
+    return 0;
+}
+
+int verifyDiagonal(char** board, int rows, int columns){
+    int countG, countR, countY;
+    countG = countR = countY = 0;
+    int i,j;
+    for(i=0; i<rows;)
+        for(j=0; j<columns;){
+            if(board[i][j] == 'G')
+                countG++;
+            else if(board[i][j] == 'Y')
+                countY++;
+            else if(board[i][j] == 'R')
+                countR++;
+            i++;
+            j++;
+        }
+    if(countG == rows || countY == rows || countR == rows)
+        return 1;
+    countG=0, countY = 0, countR = 0;
+    for(i=0; i<rows;)
+        for(j=columns-1; j>=0;){
+            if(board[i][j] == 'G')
+                countG++;
+            else if(board[i][j] == 'Y')
+                countY++;
+            else if(board[i][j] == 'R')
+                countR++;
+            i++;
+            j--;
+        }
+    return countG == rows || countY == rows || countR == rows ? 1 : 0;
+}
+
+int verifyWinner(Game* game){
+    if(verifyRow(game->board, game->rows, game->columns) == 1){
+        printf("\nPlayer [%c] won the game by row.\n", game->player);
+        game->win = 1;
+    }
+    else if(verifyColumns(game->board, game->rows, game->columns) == 1){
+        printf("\nPlayer [%c] won the game by columns.\n", game->player);
+        game->win = 1;
+    }
+    else if(verifyDiagonal(game->board, game->rows, game->columns) == 1) {
+        printf("\nPlayer [%c] won the game by diagonal.\n", game->player);
+        game->win = 1;
+    }
+    return game->win;
+}
+
 
