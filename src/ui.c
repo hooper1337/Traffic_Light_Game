@@ -16,20 +16,19 @@ void printBoard(char** board, int rows, int columns){
 void startInterface(Game* game, Play** play){
     char option[20] = "";
     bool exit = false;
-
+    initGame(game);
     printf("\nWelcome to the Traffic Light Game.\n");
     do{
-        printf("\nWhat do you want to do?\n1 - Load previous game.\n2 - Play against human.\n3 - Play against computer.\n4 - Exit the game.\n\n>");
+        printf("\n\nWhat do you want to do?\n1 - Load previous game.\n2 - Play against human.\n3 - Play against computer.\n4 - Exit the game.\n\n>");
         fgets(option, 20, stdin);
         option[strlen(option)-1] = '\0';
 
         if(strcmp(option, "1\0") == 0){
-
+            loadGame(game, play);
         }else if(strcmp(option, "2\0") == 0){
             exit = true;
             game->type = 1;
             playMenu(game, play);
-
         }else if(strcmp(option, "3\0") == 0){
             exit = true;
             game->type = 2;
@@ -69,6 +68,7 @@ void playPiece(Game* game, Play** play){
         c = atoi(column);
         piece = placePiece(game->board, r, c);
         if(piece != '.'){
+            game->nPlays++;
             insertNode(play, r, c, game->player, piece);
             verifyWinner(game);
             changePlayer(game);
@@ -101,6 +101,7 @@ void playRock(Game* game, Play** play){
                     game->stonesA++;
                 else
                     game->stonesB++;
+                game->nPlays++;
                 insertNode(play,r, c, game->player, piece);
                 changePlayer(game);
             }else{
@@ -134,12 +135,20 @@ void playMenu(Game* game, Play** play){
         option[strlen(option)-1] = '\0';
         if(strcmp(option, "1\0") == 0){
             playPiece(game, play);
+        }else if(strcmp(option, "2\0") == 0){
+            saveGame(game, *play);
+            //call function to free memory
+            exit = true;
         }else if(strcmp(option, "4\0") == 0){
             playRock(game, play);
-        }else if(strcmp(option, "5\0") == 0)
+        }else if(strcmp(option, "5\0") == 0){
             addRow(game);
-        else if(strcmp(option, "6\0") == 0)
+            insertNode(play, 0, 0, game->player, '0');
+        }
+        else if(strcmp(option, "6\0") == 0){
             addColumn(game);
+            insertNode(play, 0, 0, game->player, '0');
+        }
         if(game->win == 1){
             //call function to free memory
             printBoard(game->board, game->rows, game->columns);

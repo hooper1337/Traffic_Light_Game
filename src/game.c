@@ -7,6 +7,7 @@ void initGame(Game* game){
     game->stonesB = 0;
     game->expandA = 0;
     game->expandB = 0;
+    game->nPlays = 0;
     game->type = 0;
     game->win = 0;
     game->tie = 0;
@@ -91,6 +92,7 @@ int addRow(Game* game){
         game->expandA++;
     else
         game->expandB++;
+    game->nPlays++;
     changePlayer(game);
     return 1;
 }
@@ -116,6 +118,7 @@ int addColumn(Game* game){
         game->expandA++;
     else
         game->expandB++;
+    game->nPlays++;
     changePlayer(game);
     return 1;
 }
@@ -132,8 +135,6 @@ int validatePosition(Game* game, char* row, char* column){
         }
     return 0;
 }
-
-
 
 char placeRock(char** board, int row, int column){
     char piece;

@@ -5,7 +5,6 @@
 int main() {
     Game game;
     Play* play = NULL;
-    initGame(&game);
     startInterface(&game, &play);
     return 1;
 }

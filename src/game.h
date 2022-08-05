@@ -19,6 +19,7 @@ typedef struct game{
     int tie;
     int rows;
     int columns;
+    int nPlays;
 }Game;
 
 void initGame(Game* game);
