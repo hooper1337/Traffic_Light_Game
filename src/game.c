@@ -91,6 +91,7 @@ int addRow(Game* game){
         game->expandA++;
     else
         game->expandB++;
+    changePlayer(game);
     return 1;
 }
 
@@ -115,6 +116,7 @@ int addColumn(Game* game){
         game->expandA++;
     else
         game->expandB++;
+    changePlayer(game);
     return 1;
 }
 
@@ -166,8 +168,8 @@ int verifyRow(char** board, int rows, int columns){
 int verifyColumns(char** board, int rows, int columns){
     int countG, countR, countY;
     countG = countR = countY = 0;
-    for(int i=0; i<rows;) {
-        for (int j = 0; j < columns; j++) {
+    for(int i=0; i<columns;) {
+        for (int j = 0; j < rows; j++) {
                 if (board[j][i] == 'G')
                     countG++;
                 else if (board[j][i] == 'Y')
@@ -224,9 +226,11 @@ int verifyWinner(Game* game){
         printf("\nPlayer [%c] won the game by columns.\n", game->player);
         game->win = 1;
     }
-    else if(verifyDiagonal(game->board, game->rows, game->columns) == 1) {
-        printf("\nPlayer [%c] won the game by diagonal.\n", game->player);
-        game->win = 1;
+    else if(game->rows == game->columns){
+        if(verifyDiagonal(game->board, game->rows, game->columns) == 1) {
+            printf("\nPlayer [%c] won the game by diagonal.\n", game->player);
+            game->win = 1;
+        }
     }
     return game->win;
 }

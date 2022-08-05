@@ -142,7 +142,7 @@ void playMenu(Game* game, Play** play){
             addColumn(game);
         if(game->win == 1){
             //call function to free memory
-
+            printBoard(game->board, game->rows, game->columns);
             exit = true;
         }
     }while(!exit);
