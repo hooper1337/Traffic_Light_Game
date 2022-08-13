@@ -59,5 +59,18 @@ void loadGame(Game* game, Play** play){
         counter++;
     }
     fclose(f);
+}
 
+void resumeGame(Play* play){
+    FILE* f;
+    f = fopen("resume.txt", "w");
+    if(f == NULL){
+        printf("\nError opening the desired file.\n");
+        return;
+    }
+    while(play != NULL){
+        fprintf(f, "Player: [%c], played row - [%d] column - [%d].\n", play->player, play->row, play->column);
+        play = play->nextPlay;
+    }
+    fclose(f);
 }

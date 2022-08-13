@@ -4,5 +4,6 @@
 #include "ui.h"
 void saveGame(Game* game, Play* play);
 void loadGame(Game* game, Play** play);
+void resumeGame(Play* play);
 
 #endif //SRC_FILES_H

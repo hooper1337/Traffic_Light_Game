@@ -157,6 +157,7 @@ void playMenu(Game* game, Play** play){
         if(game->win == 1){
             //call function to free memory
             printBoard(game->board, game->rows, game->columns);
+            resumeGame(*play);
             exit = true;
         }
     }while(!exit);
