@@ -25,7 +25,6 @@ void changePlayer(Game* game){
 
 char** createBoard(int rows, int columns){
     char** board = NULL;
-
     board = malloc(sizeof (char*)* rows);
     if(board == NULL){
         printf("\nError in memory alocation for the board.\n");
@@ -227,12 +226,11 @@ int verifyWinner(Game* game){
         printf("\nPlayer [%c] won the game by columns.\n", game->player);
         game->win = 1;
     }
-    else if(game->rows == game->columns){
+    else if(game->rows == game->columns)
         if(verifyDiagonal(game->board, game->rows, game->columns) == 1) {
             printf("\nPlayer [%c] won the game by diagonal.\n", game->player);
             game->win = 1;
         }
-    }
     return game->win;
 }
 

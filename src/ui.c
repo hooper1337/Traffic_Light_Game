@@ -34,7 +34,7 @@ void startInterface(Game* game, Play** play){
             game->type = 2;
             playMenu(game, play);
         }else if(strcmp(option, "4\0") == 0){
-            //call function to free memory
+            freeAll(game, *play);
             exit = true;
         }else
             printf("\nThats not a valid option.\n");
@@ -138,7 +138,7 @@ void playMenu(Game* game, Play** play){
             playPiece(game, play);
         }else if(strcmp(option, "2\0") == 0){
             saveGame(game, *play);
-            //call function to free memory
+            freeAll(game, *play);
             exit = true;
         }else if(strcmp(option, "3\0") == 0){
             showPlays(*play, game->nPlays);
@@ -147,15 +147,17 @@ void playMenu(Game* game, Play** play){
         }else if(strcmp(option, "5\0") == 0){
             addRow(game);
             insertNode(play, 0, 0, game->player, '0');
-        }
-        else if(strcmp(option, "6\0") == 0){
+        }else if(strcmp(option, "6\0") == 0){
             addColumn(game);
             insertNode(play, 0, 0, game->player, '0');
+        }else if(strcmp(option, "7\0") == 0){
+            freeAll(game, *play);
+            exit = true;
         }
         if(game->type == 2)
             playBot(game, play);
         if(game->win == 1){
-            //call function to free memory
+            freeAll(game, *play);
             printBoard(game->board, game->rows, game->columns);
             resumeGame(*play);
             exit = true;

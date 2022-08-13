@@ -24,7 +24,6 @@ void showPlays(Play* play, int nPlays){
     printf("\nHow many plays do you want to see?\n>");
     fgets(plays, 20, stdin);
     plays[strlen(plays)-1] = '\0';
-
     if(validateNumberOfPlays(plays, nPlays) == 1){
         playsCounter = atoi(plays);
         printf("\nPlays:\n");

@@ -21,7 +21,6 @@ void saveGame(Game* game, Play* play){
         fwrite(&aux->piece, sizeof(char), 1, f);
         aux = aux->nextPlay;
     }
-
     fclose(f);
 }
 
