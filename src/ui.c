@@ -157,9 +157,9 @@ void playMenu(Game* game, Play** play){
         if(game->type == 2)
             playBot(game, play);
         if(game->win == 1){
-            freeAll(game, *play);
             printBoard(game->board, game->rows, game->columns);
             resumeGame(*play);
+            freeAll(game, *play);
             exit = true;
         }
     }while(!exit);

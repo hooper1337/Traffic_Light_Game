@@ -217,7 +217,7 @@ int verifyDiagonal(char** board, int rows, int columns){
     return countG == rows || countY == rows || countR == rows ? 1 : 0;
 }
 
-int verifyWinner(Game* game){
+void verifyWinner(Game* game){
     if(verifyRow(game->board, game->rows, game->columns) == 1){
         printf("\nPlayer [%c] won the game by row.\n", game->player);
         game->win = 1;
@@ -231,7 +231,6 @@ int verifyWinner(Game* game){
             printf("\nPlayer [%c] won the game by diagonal.\n", game->player);
             game->win = 1;
         }
-    return game->win;
 }
 
 void playBot(Game* game, Play** plays){
@@ -249,5 +248,6 @@ void playBot(Game* game, Play** plays){
     printf("\nBot played in row [%d] and column [%d].\n", r, c);
     changePlayer(game);
 }
+
 
 
