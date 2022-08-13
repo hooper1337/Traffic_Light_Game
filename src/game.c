@@ -236,4 +236,20 @@ int verifyWinner(Game* game){
     return game->win;
 }
 
+void playBot(Game* game, Play** plays){
+    int r=0;
+    int c=0;
+    srand(time(NULL));
+    r = rand() % game->rows;
+    c = rand() % game->columns;
+    while(placePiece(game->board, r, c) == '.'){
+        r = rand() % game->rows;
+        c = rand() % game->columns;
+    }
+    game->nPlays++;
+    insertNode(plays, r, c, game->player, 'B');
+    printf("\nBot played in row [%d] and column [%d].\n", r, c);
+    changePlayer(game);
+}
+
 

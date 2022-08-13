@@ -35,5 +35,6 @@ int verifyRow(char** board, int rows, int columns);
 int verifyColumns(char** board, int rows, int columns);
 int verifyDiagonal(char** board, int rows, int columns);
 int verifyWinner(Game* game);
+void playBot(Game* game, Play** plays);
 
 #endif //SRC_GAME_H

@@ -32,6 +32,7 @@ void startInterface(Game* game, Play** play){
         }else if(strcmp(option, "3\0") == 0){
             exit = true;
             game->type = 2;
+            playMenu(game, play);
         }else if(strcmp(option, "4\0") == 0){
             //call function to free memory
             exit = true;
@@ -151,6 +152,8 @@ void playMenu(Game* game, Play** play){
             addColumn(game);
             insertNode(play, 0, 0, game->player, '0');
         }
+        if(game->type == 2)
+            playBot(game, play);
         if(game->win == 1){
             //call function to free memory
             printBoard(game->board, game->rows, game->columns);
